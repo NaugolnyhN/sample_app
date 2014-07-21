@@ -23,11 +23,13 @@ describe "Static pages" do
   describe "Help page" do
 
     it "should have the h1 'Help'" do
-      visit help_path
+      #visit help_path
+      visit root_path
       expect(page).to have_content('Help')
     end
 
     it "should have the title 'Help'" do
+      #visit help_path
       visit help_path
       expect(page).to have_title("Ruby on Rails Tutorial Sample App | Help")
     end
@@ -37,11 +39,13 @@ describe "Static pages" do
 
     it "should have the h1 'About Us'" do
       visit about_path
+      #visit root_path
       expect(page).to have_content('About Us')
     end
 
     it "should have the title 'About Us'" do
       visit about_path
+      #visit root_path
       expect(page).to have_title("Ruby on Rails Tutorial Sample App | About Us")
     end
   end
@@ -49,12 +53,12 @@ describe "Static pages" do
   describe "Contact page" do
 
     it "should have the content 'Contact'" do
-      visit contact_path
+      visit root_path
       expect(page).to have_content('Contact')
     end
 
     it "should have the title 'Contact'" do
-      visit contact_path
+      visit root_path
       expect(page).to have_title("Ruby on Rails Tutorial Sample App | Contact")
     end
   end
