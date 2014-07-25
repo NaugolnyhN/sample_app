@@ -28,6 +28,7 @@ describe "User pages" do
         end
       end
     end
+
     describe "delete links" do
 
       it { should_not have_link('delete') }
@@ -65,6 +66,7 @@ describe "User pages" do
       it { should have_content(m2.content) }
       it { should have_content(user.microposts.count) }
     end
+   
     describe "follow/unfollow buttons" do
       let(:other_user) { FactoryGirl.create(:user) }
       before { sign_in user }
@@ -112,6 +114,8 @@ describe "User pages" do
           before { click_button "Unfollow" }
           it { should have_xpath("//input[@value='Follow']") }
         end
+      end
+    end
   end
 
   describe "signup page" do
@@ -139,6 +143,7 @@ describe "User pages" do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+
       describe "after saving the user" do
         before { click_button submit }
         let(:user) { User.find_by(email: 'user@example.com') }
@@ -213,6 +218,4 @@ describe "edit" do
     end
   
   end
-end
-end
 end
